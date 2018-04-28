@@ -1,0 +1,16 @@
+-----------------------------------------------------------
+How to get return value program a program?
+
+#include<stdio.h>
+main()
+{
+ printf("Hello World!\n");
+ return 5:
+}
+
+after executed, you can check the return value by type:
+$echo $?
+5
+
+------------------------------------------------------------
+
