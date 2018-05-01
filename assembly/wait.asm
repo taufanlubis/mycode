@@ -2,24 +2,23 @@ section .text
 global _start
 _start:
 
-;read number
-mov eax,3
-mov ebx,2
-mov ecx,num
-mov dx,1
-int 0x80
+    ;display message
+    mov eax,4
+    mov ebx,1
+    mov ecx,msg
+    mov edx,lenmsg
+    int 0x80
 
-;send output
-mov eax,4
-mov ebx,1
-mov edx,1
-mov ecx,num
-int 0x80
+    ;wait for key press
+    mov eax,3
+    mov ebx,0
+    mov edx,1
+    int 0x80
 
-;exit
-mov eax,1
-int 0x80
+    ;exit
+    mov eax,1
+    int 0x80 
 
 section .data
-section .bss
-    num resb 1
+    msg db 'Please, press any key to continue',0xA,0xD
+    lenmsg equ $-msg
